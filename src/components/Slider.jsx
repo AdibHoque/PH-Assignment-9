@@ -28,7 +28,7 @@ export default function Slider() {
               <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-yellow-500 font-merriweather">
                 Luxury is a lifestyle.<br></br>Not just a possession.
               </h1>
-              <p className="text-white px-5 md:px-10">
+              <p className="text-white px-6 md:px-10">
                 Indulge in luxury living with LuxeLife Estates. Discover a world
                 where every detail speaks volumes and every home is a
                 masterpiece of opulence and refinement. Elevate your lifestyle
@@ -42,7 +42,7 @@ export default function Slider() {
               <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-yellow-500 font-merriweather">
                 Luxury: where elegance meets opulence.
               </h1>
-              <p className="text-white px-5 md:px-10">
+              <p className="text-white px-6 md:px-10">
                 LuxeLife Estates unveils the epitome of refined living with our
                 exclusive collection of prestigious properties. Explore our
                 curated selection of luxurious villas, estates, and residences.
@@ -55,7 +55,7 @@ export default function Slider() {
               <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-yellow-500 font-merriweather">
                 In the world of luxury, every detail speaks volumes.
               </h1>
-              <p className="text-white px-5 md:px-10">
+              <p className="text-white px-6 md:px-10">
                 Discover the essence of luxury with LuxeLife Estates. Immerse
                 yourself in a world where comfort meets extravagance, where
                 every corner exudes elegance and every property is a testament
@@ -69,7 +69,7 @@ export default function Slider() {
               <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-yellow-500 font-merriweather">
                 Luxury: the art of living beautifully.
               </h1>
-              <p className="text-white px-5 md:px-10">
+              <p className="text-white px-6 md:px-10">
                 Elevate your lifestyle with LuxeLife Estates. Immerse yourself
                 in the art of living beautifully as you explore our curated
                 selection of luxurious properties.
@@ -82,7 +82,7 @@ export default function Slider() {
               <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-yellow-500 font-merriweather">
                 Luxury: where comfort meets extravagance.
               </h1>
-              <p className="text-white px-5 md:px-10">
+              <p className="text-white px-6 md:px-10">
                 Experience the pinnacle of luxury living with LuxeLife Estates.
                 Immerse yourself in unparalleled comfort and sophistication as
                 you explore our exclusive collection of properties. From lavish
