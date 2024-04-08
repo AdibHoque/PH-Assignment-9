@@ -1,6 +1,4 @@
 import {Link, NavLink} from "react-router-dom";
-import {FaDiscord} from "react-icons/fa6";
-import {FaUserCircle} from "react-icons/fa";
 import {useState} from "react";
 
 export default function NavBar() {
