@@ -77,9 +77,12 @@ export default function NavBar() {
         <ul className="gap-2 px-2 text-white menu menu-horizontal">{links}</ul>
       </div>
       <div className="flex navbar-end animate-fade-left animate-once">
-        <button className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500">
+        <Link
+          to="/login"
+          className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
+        >
           LOGIN
-        </button>
+        </Link>
       </div>
     </div>
   );

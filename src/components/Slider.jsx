@@ -7,7 +7,7 @@ import "swiper/css/scrollbar";
 export default function Slider() {
   return (
     <>
-      <div className="flex justify-center p-10 bg-[url('https://i.ibb.co/3CHQCzD/banner-png.png')] bg-cover bg-no-repeat">
+      <div className="flex justify-center items-center h-[86vh] p-10 bg-[url('https://i.ibb.co/3CHQCzD/banner-png.png')] bg-cover bg-no-repeat">
         <swiper-container
           style={{
             "--swiper-navigation-color": "#fff",
