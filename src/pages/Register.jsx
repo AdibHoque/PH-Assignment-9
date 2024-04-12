@@ -14,13 +14,7 @@ export default function Register() {
     const email = form.get("email");
     const password = form.get("password");
 
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    createUser(email, password);
   };
   return (
     <>

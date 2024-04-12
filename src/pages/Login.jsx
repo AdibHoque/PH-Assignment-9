@@ -2,11 +2,19 @@ import NavBar from "../components/Navbar";
 import {FcGoogle} from "react-icons/fc";
 import {FaGithub} from "react-icons/fa";
 import {Link} from "react-router-dom";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {AuthContext} from "../AuthProvider";
+import {useNavigate} from "react-router-dom";
 
 export default function Login() {
   const {user, logIn, errorMessage} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();

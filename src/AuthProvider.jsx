@@ -7,6 +7,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 export const AuthContext = createContext(null);
 
@@ -94,6 +98,13 @@ export default function AuthProvider({children}) {
       .then((userCredential) => {
         // Signed in
         setUser(userCredential.user);
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Registration Successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         // ...
       })
       .catch((error) => {
@@ -111,6 +122,13 @@ export default function AuthProvider({children}) {
       .then((userCredential) => {
         // Signed in
         setUser(userCredential.user);
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Logged in!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         // ...
       })
       .catch((error) => {
@@ -125,7 +143,24 @@ export default function AuthProvider({children}) {
   };
 
   const logOut = () => {
-    return signOut(auth);
+    MySwal.fire({
+      title: "Logout?",
+      text: "You will need to Login again if you Logout, so make sure you remember your account credentials.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOut(auth);
+        Swal.fire({
+          title: "Logged Out!",
+          text: "Your account is signed out.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   useEffect(() => {
