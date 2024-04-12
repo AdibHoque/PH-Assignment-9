@@ -6,7 +6,7 @@ import {useContext} from "react";
 import {AuthContext} from "../AuthProvider";
 
 export default function Register() {
-  const {createUser} = useContext(AuthContext);
+  const {createUser, errorMessage} = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -72,6 +72,11 @@ export default function Register() {
                   Register
                 </button>
               </div>
+              {errorMessage ? (
+                <h3 className="text-red-600">{errorMessage}</h3>
+              ) : (
+                ""
+              )}
             </form>
           </div>
         </div>

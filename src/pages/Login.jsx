@@ -2,14 +2,18 @@ import NavBar from "../components/Navbar";
 import {FcGoogle} from "react-icons/fc";
 import {FaGithub} from "react-icons/fa";
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../AuthProvider";
 
 export default function Login() {
+  const {user, logIn, errorMessage} = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
+    logIn(email, password);
   };
   return (
     <>
@@ -64,6 +68,11 @@ export default function Login() {
                   Login
                 </button>
               </div>
+              {errorMessage ? (
+                <h3 className="text-red-600">{errorMessage}</h3>
+              ) : (
+                ""
+              )}
             </form>
           </div>
         </div>

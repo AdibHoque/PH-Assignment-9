@@ -1,7 +1,10 @@
 import {Link, NavLink} from "react-router-dom";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../AuthProvider";
+import {FaUserCircle} from "react-icons/fa";
 
 export default function NavBar() {
+  const {user, logOut} = useContext(AuthContext);
   const [navToggle, setNavToggle] = useState(false);
   const navClass = ({isActive, isPending}) =>
     isPending || isActive
@@ -77,12 +80,29 @@ export default function NavBar() {
         <ul className="gap-2 px-2 text-white menu menu-horizontal">{links}</ul>
       </div>
       <div className="flex navbar-end animate-fade-left animate-once">
-        <Link
-          to="/login"
-          className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
-        >
-          LOGIN
-        </Link>
+        {user ? (
+          <div className="flex justify-center">
+            <div className="tooltip tooltip-bottom" data-tip={user.email}>
+              <button className="text-4xl text-white btn btn-circle btn-ghost">
+                <FaUserCircle />
+              </button>
+            </div>
+
+            <button
+              onClick={logOut}
+              className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
+            >
+              LOGOUT
+            </button>
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
+          >
+            LOGIN
+          </Link>
+        )}
       </div>
     </div>
   );
