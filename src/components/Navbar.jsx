@@ -1,4 +1,4 @@
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useMatch} from "react-router-dom";
 import {useContext, useState} from "react";
 import {AuthContext} from "../AuthProvider";
 import {FaUserCircle} from "react-icons/fa";
@@ -6,6 +6,7 @@ import {FaUserCircle} from "react-icons/fa";
 export default function NavBar() {
   const {user, logOut} = useContext(AuthContext);
   const [navToggle, setNavToggle] = useState(false);
+  const match = useMatch("/login");
   const navClass = ({isActive, isPending}) =>
     isPending || isActive
       ? "text-yellow-500 border-2 border-yellow-500 rounded-none font-extrabold hover:border-white hover:text-white"
@@ -95,6 +96,13 @@ export default function NavBar() {
               LOGOUT
             </button>
           </div>
+        ) : match ? (
+          <Link
+            to="/register"
+            className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
+          >
+            REGISTER
+          </Link>
         ) : (
           <Link
             to="/login"

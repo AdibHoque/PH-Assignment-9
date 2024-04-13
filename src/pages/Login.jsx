@@ -7,7 +7,7 @@ import {AuthContext} from "../AuthProvider";
 import {useNavigate} from "react-router-dom";
 
 export default function Login() {
-  const {user, logIn, errorMessage} = useContext(AuthContext);
+  const {user, logIn, errorMessage, googleLogIn} = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,9 +64,9 @@ export default function Login() {
                 </label>
               </div>
               <div className="flex justify-center items-center gap-5">
-                <button className="btn btn-circle text-3xl">
+                <a onClick={googleLogIn} className="btn btn-circle text-3xl">
                   <FcGoogle />
-                </button>
+                </a>
                 <button className="btn btn-circle text-3xl">
                   <FaGithub />
                 </button>
@@ -76,6 +76,7 @@ export default function Login() {
                   Login
                 </button>
               </div>
+
               {errorMessage ? (
                 <h3 className="text-red-600">{errorMessage}</h3>
               ) : (
