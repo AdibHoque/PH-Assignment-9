@@ -72,9 +72,9 @@ export default function NavBar() {
             {links}
           </ul>
         </details>
-        <Link className="text-3xl font-bold leading-none lg:leading-none text-yellow-500 lg:text-3xl animate-fade-right animate-once font-playfair">
+        <Link className="text-3xl font-bold mb-0 leading-none lg:leading-none text-yellow-500 lg:text-3xl animate-fade-right animate-once font-playfair">
           LUXELIFE<br></br>
-          <span className="tracking-widest">ESTATES</span>
+          <span className="tracking-widest mt-0 leading-none">ESTATES</span>
         </Link>
       </div>
       <div className="hidden navbar-center lg:flex animate-fade-up animate-once">

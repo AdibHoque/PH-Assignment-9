@@ -35,3 +35,6 @@ swiper-slide img {
     height: 400px;
   }
 }
+.btn {
+  font-family: "Roboto", sans-serif;
+}

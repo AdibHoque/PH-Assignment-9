@@ -41,11 +41,11 @@
   },
   {
     "id": 4,
-    "estate_title": "Luxury Villa",
+    "estate_title": "Luxo Villa",
     "image": "https://i.ibb.co/BNcfwpH/d6c49ae1-2757-442d-a1a7-f443387f5a60.jpg",
     "segment_name": "Luxury Villas",
     "description": "Discover unparalleled elegance and sophistication in this meticulously designed luxury villa. Set amidst lush landscaped gardens, this exceptional residence offers the epitome of refined living.",
-    "price": "$3,500,000",
+    "price": "$100,000/month",
     "status": "Rent",
     "area": "5,000 sq ft",
     "location": "Beverly Hills, California",
