@@ -72,9 +72,9 @@ export default function NavBar() {
             {links}
           </ul>
         </details>
-        <Link className="text-3xl font-bold mb-0 leading-none lg:leading-none text-yellow-500 lg:text-3xl animate-fade-right animate-once font-playfair">
+        <Link className="mb-0 text-3xl font-bold leading-none text-yellow-500 lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
           LUXELIFE<br></br>
-          <span className="tracking-widest mt-0 leading-none">ESTATES</span>
+          <span className="mt-0 leading-none tracking-widest">ESTATES</span>
         </Link>
       </div>
       <div className="hidden navbar-center lg:flex animate-fade-up animate-once">
@@ -82,10 +82,18 @@ export default function NavBar() {
       </div>
       <div className="flex navbar-end animate-fade-left animate-once">
         {user ? (
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-2">
             <div className="tooltip tooltip-bottom" data-tip={user.email}>
               <button className="text-4xl text-white btn btn-circle btn-ghost">
-                <FaUserCircle />
+                {user.photoURL ? (
+                  <div className="avatar">
+                    <div className="w-12 rounded-full">
+                      <img src={user.photoURL} />
+                    </div>
+                  </div>
+                ) : (
+                  <FaUserCircle />
+                )}
               </button>
             </div>
 

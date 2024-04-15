@@ -8,6 +8,7 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 
 import Swal from "sweetalert2";
@@ -19,6 +20,16 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+
+function errorAlert(err) {
+  MySwal.fire({
+    position: "center",
+    icon: "error",
+    text: err,
+    showConfirmButton: false,
+    timer: 5000,
+  });
+}
 
 const firebaseErrorMessages = [
   {
@@ -97,10 +108,36 @@ export default function AuthProvider({children}) {
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const createUser = (email, password) => {
+  const createUser = (email, password, username, photo) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    const isValid = passwordRegex.test(password);
+    if (!isValid) {
+      errorAlert(
+        "The password is too weak. Please include a Uppercase & Lowercase letter and it must be at least 6 characters in total."
+      );
+      return setErrorMessage(
+        "The password is too weak. Please include a Uppercase & Lowercase letter and it must be at least 6 characters in total."
+      );
+    }
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
+        if (username && photo) {
+          updateProfile(auth.currentUser, {
+            displayName: username,
+            photoURL: photo,
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
+        }
+
         setUser(userCredential.user);
         MySwal.fire({
           position: "center",
@@ -115,7 +152,7 @@ export default function AuthProvider({children}) {
         const errorMessageObj = firebaseErrorMessages.find(
           (err) => err.code == error.code
         );
-        console.log(error.code);
+        errorAlert(errorMessageObj ? errorMessageObj.message : "Unkown Error");
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
@@ -139,6 +176,7 @@ export default function AuthProvider({children}) {
         const errorMessageObj = firebaseErrorMessages.find(
           (err) => err.code == error.code
         );
+        errorAlert(errorMessageObj ? errorMessageObj.message : "Unkown Error");
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );

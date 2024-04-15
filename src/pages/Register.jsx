@@ -2,27 +2,60 @@ import NavBar from "../components/Navbar";
 import {FcGoogle} from "react-icons/fc";
 import {FaGithub} from "react-icons/fa";
 import {Link} from "react-router-dom";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {AuthContext} from "../AuthProvider";
+import {useNavigate} from "react-router-dom";
 
 export default function Register() {
-  const {createUser, errorMessage} = useContext(AuthContext);
+  const {user, createUser, errorMessage} = useContext(AuthContext);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
+    const username = form.get("username");
+    const photo = form.get("photo");
 
-    createUser(email, password);
+    createUser(email, password, username, photo);
   };
   return (
     <>
       <NavBar></NavBar>
       <div className="hero h-[86vh] bg-base-200">
-        <div className="hero-content w-full">
-          <div className="card w-full max-w-md shadow-2xl bg-base-100 border-2 border-yellow-500 rounded-none">
+        <div className="w-full hero-content">
+          <div className="w-full max-w-md border-2 border-yellow-500 rounded-none shadow-2xl card bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Username</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your Username"
+                  name="username"
+                  className="rounded-none input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="url"
+                  placeholder="URL of photo"
+                  name="photo"
+                  className="rounded-none input input-bordered"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -31,7 +64,7 @@ export default function Register() {
                   type="email"
                   placeholder="youremail@example.com"
                   name="email"
-                  className="input input-bordered rounded-none"
+                  className="rounded-none input input-bordered"
                   required
                 />
               </div>
@@ -43,7 +76,7 @@ export default function Register() {
                   type="password"
                   placeholder="password"
                   name="password"
-                  className="input input-bordered rounded-none"
+                  className="rounded-none input input-bordered"
                   required
                 />
                 <label className="label">
@@ -53,16 +86,16 @@ export default function Register() {
                   </Link>
                 </label>
               </div>
-              <div className="flex justify-center items-center gap-5">
-                <button className="btn btn-circle text-3xl">
+              <div className="flex items-center justify-center gap-5">
+                <button className="text-3xl btn btn-circle">
                   <FcGoogle />
                 </button>
-                <button className="btn btn-circle text-3xl">
+                <button className="text-3xl btn btn-circle">
                   <FaGithub />
                 </button>
               </div>
-              <div className="form-control mt-2">
-                <button className="btn bg-yellow-500 font-bold text-gray-950 hover:text-white rounded-none">
+              <div className="mt-2 form-control">
+                <button className="font-bold bg-yellow-500 rounded-none btn text-gray-950 hover:text-white">
                   Register
                 </button>
               </div>
