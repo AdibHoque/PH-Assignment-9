@@ -17,7 +17,7 @@ export default function Estates() {
   } = data;
   return (
     <>
-      <div className="h-[86vh] hero bg-base-200">
+      <div className="min-h-[86vh] hero bg-base-200 relative">
         <div className="flex-col hero-content lg:flex-row">
           <img src={image} className="lg:max-w-[50%] rounded-lg shadow-2xl" />
           <div>

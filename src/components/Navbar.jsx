@@ -87,7 +87,7 @@ export default function NavBar() {
               <button className="text-4xl text-white btn btn-circle btn-ghost">
                 {user.photoURL ? (
                   <div className="avatar">
-                    <div className="w-12 rounded-full">
+                    <div className="w-10 rounded-full">
                       <img src={user.photoURL} />
                     </div>
                   </div>
