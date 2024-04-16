@@ -43,12 +43,80 @@
     "id": 4,
     "estate_title": "Luxo Villa",
     "image": "https://i.ibb.co/BNcfwpH/d6c49ae1-2757-442d-a1a7-f443387f5a60.jpg",
-    "segment_name": "Luxury Villas",
+    "segment_name": "Luxury Homes",
     "description": "Discover unparalleled elegance and sophistication in this meticulously designed luxury villa. Set amidst lush landscaped gardens, this exceptional residence offers the epitome of refined living.",
-    "price": "$100,000/month",
+    "price": "$50,000/month",
     "status": "Rent",
     "area": "5,000 sq ft",
     "location": "Beverly Hills, California",
     "facilities": ["Home Theater", "Spa & Wellness Center", "Outdoor Kitchen"]
+  },
+  {
+    "id": 5,
+    "estate_title": "Mountain Chalet Retreat",
+    "image": "https://i.ibb.co/H7183H3/image.png",
+    "segment_name": "Exclusive Properties",
+    "description": "Escape to the tranquility of the mountains in this charming chalet retreat. Nestled amidst pristine alpine surroundings, this cozy hideaway offers a perfect blend of rustic charm and modern comfort.",
+    "price": "$750,000",
+    "status": "Sale",
+    "area": "2,500 sq ft",
+    "location": "Aspen, Colorado",
+    "facilities": [
+      "Stone Fireplace",
+      "Ski-in/Ski-out Access",
+      "Outdoor Hot Tub"
+    ]
+  },
+  {
+    "id": 6,
+    "estate_title": "Eco-Friendly Retreat",
+    "image": "https://i.ibb.co/dK4LGqJ/image.png",
+    "segment_name": "Luxury Homes",
+    "description": "Live in harmony with nature in this eco-friendly retreat. Featuring sustainable design and energy-efficient features, this environmentally conscious home offers a modern and comfortable lifestyle.",
+    "price": "$500,000",
+    "status": "Sale",
+    "area": "2,000 sq ft",
+    "location": "Portland, Oregon",
+    "facilities": [
+      "Solar Panels",
+      "Rainwater Harvesting System",
+      "Organic Garden"
+    ]
+  },
+  {
+    "id": 7,
+    "estate_title": "Historic Manor House",
+    "image": "https://i.ibb.co/7pj91Wh/image.png",
+    "segment_name": "Exclusive Properties",
+    "description": "Step back in time and experience the grandeur of a bygone era in this historic manor house. Impeccably restored to its former glory, this stately residence offers a glimpse into the past.",
+    "price": "$2,500,000",
+    "status": "Sale",
+    "area": "6,000 sq ft",
+    "location": "Charleston, South Carolina",
+    "facilities": ["Antique Furnishings", "Formal Gardens", "Ballroom"]
+  },
+  {
+    "id": 8,
+    "estate_title": "Modern Urban Loft",
+    "image": "https://i.ibb.co/RPZvx1h/image.png",
+    "segment_name": "Luxury Apartments",
+    "description": "Embrace city living in this stylish modern urban loft. With sleek contemporary design and spacious open-plan living, this chic loft offers the ultimate in urban sophistication.",
+    "price": "$1,200,000",
+    "status": "Sale",
+    "area": "1,500 sq ft",
+    "location": "San Francisco, California",
+    "facilities": ["Exposed Brick Walls", "High Ceilings", "Rooftop Terrace"]
+  },
+  {
+    "id": 9,
+    "estate_title": "Seaside Cottage",
+    "image": "https://i.ibb.co/hgY3VNH/image.png",
+    "segment_name": "Luxury Homes",
+    "description": "Escape to the charming simplicity of seaside living in this cozy cottage retreat. Located just steps from the beach, this quaint getaway offers a peaceful retreat from the hustle and bustle of everyday life.",
+    "price": "$3,000/month",
+    "status": "Rent",
+    "area": "1,200 sq ft",
+    "location": "Cape Cod, Massachusetts",
+    "facilities": ["Ocean Views", "Wood-Burning Fireplace", "Wraparound Porch"]
   }
 ]
