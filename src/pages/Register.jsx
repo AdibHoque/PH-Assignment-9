@@ -27,7 +27,6 @@ export default function Register() {
   };
   return (
     <>
-      <NavBar></NavBar>
       <div className="hero h-[86vh] bg-base-200">
         <div className="w-full hero-content">
           <div className="w-full max-w-md border-2 border-yellow-500 rounded-none shadow-2xl card bg-base-100">

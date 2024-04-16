@@ -107,8 +107,10 @@ const firebaseErrorMessages = [
 export default function AuthProvider({children}) {
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password, username, photo) => {
+    setLoading(true);
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     const isValid = passwordRegex.test(password);
     if (!isValid) {
@@ -159,6 +161,7 @@ export default function AuthProvider({children}) {
       });
   };
   const logIn = (email, password) => {
+    setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -183,6 +186,7 @@ export default function AuthProvider({children}) {
       });
   };
   const googleLogIn = () => {
+    setLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -213,6 +217,7 @@ export default function AuthProvider({children}) {
   };
 
   const logOut = () => {
+    setLoading(true);
     MySwal.fire({
       title: "Logout?",
       text: "You will need to Login again if you Logout, so make sure you remember your account credentials.",
@@ -237,13 +242,22 @@ export default function AuthProvider({children}) {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
       console.log("User Auth chnaged", currentuser);
       setUser(currentuser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
     };
   }, []);
 
-  const authInfo = {user, errorMessage, createUser, logOut, logIn, googleLogIn};
+  const authInfo = {
+    user,
+    loading,
+    errorMessage,
+    createUser,
+    logOut,
+    logIn,
+    googleLogIn,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

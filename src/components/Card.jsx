@@ -1,5 +1,7 @@
+import {Link} from "react-router-dom";
+
 export default function Card({data}) {
-  const {estate_title, image, segment_name, price, status, location, area} =
+  const {id, estate_title, image, segment_name, price, status, location, area} =
     data;
 
   return (
@@ -24,9 +26,12 @@ export default function Card({data}) {
           </div>
           <hr className="my-3" />
           <div className="justify-center card-actions">
-            <button className="text-black bg-yellow-400 border-none hover:text-yellow-500 btn">
+            <Link
+              to={`/estates/${id}`}
+              className="text-black bg-yellow-400 border-none hover:text-yellow-500 btn"
+            >
               View Property
-            </button>
+            </Link>
           </div>
         </div>
       </div>
