@@ -19,7 +19,13 @@ export default function Estates() {
     <>
       <div className="min-h-[86vh] hero bg-base-200 relative">
         <div className="flex-col hero-content lg:flex-row">
-          <img src={image} className="lg:max-w-[50%] rounded-lg shadow-2xl" />
+          <figure>
+            <img src={image} alt={estate_title} />
+            <div className="absolute p-3 text-xl font-bold bg-yellow-400 border-yellow-400 rounded-none top-6 lg:top-20 text-base-100 badge badge-secondary">
+              {status}
+            </div>
+          </figure>
+
           <div>
             <h1 className="text-5xl font-bold text-yellow-500">
               {estate_title}
