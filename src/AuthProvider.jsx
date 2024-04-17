@@ -208,7 +208,7 @@ export default function AuthProvider({children}) {
         const errorMessageObj = firebaseErrorMessages.find(
           (err) => err.code == error.code
         );
-        console.log(error.code);
+
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
@@ -237,6 +237,30 @@ export default function AuthProvider({children}) {
       }
     });
   };
+  const profileUpdate = (username, photo) => {
+    updateProfile(auth.currentUser, {
+      displayName: username,
+      photoURL: photo,
+    })
+      .then(() => {
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Profile Updated!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        const errorMessageObj = firebaseErrorMessages.find(
+          (err) => err.code == error.code
+        );
+        console.log(error.code);
+        setErrorMessage(
+          errorMessageObj ? errorMessageObj.message : "Unkown Error"
+        );
+      });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
@@ -257,6 +281,7 @@ export default function AuthProvider({children}) {
     logOut,
     logIn,
     googleLogIn,
+    profileUpdate,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

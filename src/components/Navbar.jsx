@@ -23,10 +23,15 @@ export default function NavBar() {
           SELL WITH US
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/updateprofile" className={navClass}>
+          UPDATE PROFILE
+        </NavLink>
+      </li>
     </>
   );
   return (
-    <div className="navbar bg-[#202020] lg:px-24">
+    <div className="navbar bg-[#202020] lg:px-24 h-full">
       <div className="navbar-start">
         <details className="dropdown">
           <summary
