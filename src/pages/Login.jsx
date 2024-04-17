@@ -1,4 +1,3 @@
-import NavBar from "../components/Navbar";
 import {FcGoogle} from "react-icons/fc";
 import {FaGithub} from "react-icons/fa";
 import {Link} from "react-router-dom";
@@ -7,7 +6,8 @@ import {AuthContext} from "../AuthProvider";
 import {useNavigate} from "react-router-dom";
 
 export default function Login() {
-  const {user, logIn, errorMessage, googleLogIn} = useContext(AuthContext);
+  const {user, logIn, errorMessage, googleLogIn, githubLogIn} =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,9 +66,9 @@ export default function Login() {
                 <a onClick={googleLogIn} className="text-3xl btn btn-circle">
                   <FcGoogle />
                 </a>
-                <button className="text-3xl btn btn-circle">
+                <a onClick={githubLogIn} className="text-3xl btn btn-circle">
                   <FaGithub />
-                </button>
+                </a>
               </div>
               <div className="mt-2 form-control">
                 <button className="font-bold bg-yellow-500 rounded-none btn text-gray-950 hover:text-white">

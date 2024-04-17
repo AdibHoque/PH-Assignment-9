@@ -8,6 +8,7 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  GithubAuthProvider,
   updateProfile,
 } from "firebase/auth";
 
@@ -20,6 +21,7 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 function errorAlert(err) {
   MySwal.fire({
@@ -169,7 +171,7 @@ export default function AuthProvider({children}) {
         MySwal.fire({
           position: "center",
           icon: "success",
-          title: "Logged in!",
+          title: "Login Successfull!",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -196,6 +198,13 @@ export default function AuthProvider({children}) {
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         // ...
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         // Handle Errors here.
@@ -215,7 +224,44 @@ export default function AuthProvider({children}) {
         // ...
       });
   };
+  const githubLogIn = () => {
+    setLoading(true);
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
 
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GithubAuthProvider.credentialFromError(error);
+        const errorMessageObj = firebaseErrorMessages.find(
+          (err) => err.code == error.code
+        );
+
+        setErrorMessage(
+          errorMessageObj ? errorMessageObj.message : "Unkown Error"
+        );
+        // ...
+      });
+  };
   const logOut = () => {
     setLoading(true);
     MySwal.fire({
@@ -281,6 +327,7 @@ export default function AuthProvider({children}) {
     logOut,
     logIn,
     googleLogIn,
+    githubLogIn,
     profileUpdate,
   };
   return (
