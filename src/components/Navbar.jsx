@@ -4,7 +4,7 @@ import {AuthContext} from "../AuthProvider";
 import {FaUserCircle} from "react-icons/fa";
 
 export default function NavBar() {
-  const {user, logOut} = useContext(AuthContext);
+  const {user, logOut, loading} = useContext(AuthContext);
   const [navToggle, setNavToggle] = useState(false);
   const match = useMatch("/login");
   const navClass = ({isActive, isPending}) =>
@@ -81,7 +81,9 @@ export default function NavBar() {
         <ul className="gap-2 px-2 text-white menu menu-horizontal">{links}</ul>
       </div>
       <div className="flex navbar-end animate-fade-left animate-once">
-        {user ? (
+        {loading ? (
+          <span className="text-yellow-500 loading loading-spinner loading-lg"></span>
+        ) : user ? (
           <div className="flex justify-center gap-2">
             <div className="tooltip tooltip-bottom" data-tip={user.email}>
               <button className="text-4xl text-white btn btn-circle btn-ghost">

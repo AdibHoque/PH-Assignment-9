@@ -20,7 +20,7 @@ export default function Card({data}) {
           <div className="flex flex-wrap justify-between">
             <h2 className="font-bold text-red-500">{price}</h2>
             <h4>
-              <spa className="font-semibold">Area: </spa>
+              <span className="font-semibold">Area: </span>
               {area}
             </h4>
           </div>
