@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 export default function Footer() {
   return (
     <>
-      <footer className="p-10 footer footer-center bg-[#202020] text-white">
+      <footer className="p-10 footer footer-center bg-[#202020] text-white animate__animated animate__fadeInDown">
         <aside>
           <Link className="mb-0 text-3xl font-bold leading-none text-yellow-500 lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
             LUXELIFE ESTATES

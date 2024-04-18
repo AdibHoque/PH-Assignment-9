@@ -21,7 +21,7 @@ export default function Estates() {
       <Helmet>
         <title>LE - ESTATES</title>
       </Helmet>
-      <div className="min-h-[86vh] hero bg-base-200 relative">
+      <div className="min-h-[86vh] hero relative animate__animated animate__zoomIn my-10">
         <div className="flex-col hero-content lg:flex-row">
           <figure>
             <img src={image} alt={estate_title} />

@@ -39,8 +39,8 @@ export default function NavBar() {
     </>
   );
   return (
-    <div className="navbar bg-[#202020] lg:px-24 h-full">
-      <div className="navbar-start">
+    <div className="navbar bg-[#202020] lg:px-24 h-full ">
+      <div className="navbar-start animate__animated animate__fadeInRight">
         <details className="dropdown">
           <summary
             tabIndex={0}
@@ -90,10 +90,10 @@ export default function NavBar() {
           <span className="mt-0 leading-none tracking-widest">ESTATES</span>
         </Link>
       </div>
-      <div className="hidden navbar-center lg:flex animate-fade-up animate-once">
+      <div className="hidden navbar-center lg:flex animate__animated animate__fadeInDown">
         <ul className="gap-2 px-2 text-white menu menu-horizontal">{links}</ul>
       </div>
-      <div className="flex navbar-end animate-fade-left animate-once">
+      <div className="flex navbar-end animate__animated animate__fadeInLeft">
         {loading ? (
           <span className="text-yellow-500 loading loading-spinner loading-lg"></span>
         ) : user ? (

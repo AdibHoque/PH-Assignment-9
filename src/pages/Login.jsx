@@ -31,7 +31,7 @@ export default function Login() {
       <Helmet>
         <title>LE - LOGIN</title>
       </Helmet>
-      <div className="hero min-h-[86vh] bg-base-200">
+      <div className="hero min-h-[86vh] bg-base-200 animate__animated animate__slideInLeft">
         <div className="w-full hero-content">
           <div className="w-full max-w-md border-2 border-yellow-500 rounded-none shadow-2xl card bg-base-100">
             <form onSubmit={handleLogin} className="card-body">

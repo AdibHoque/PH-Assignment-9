@@ -11,7 +11,7 @@ export default function Cards() {
   return (
     <>
       <div className="px-4 lg:px-24">
-        <h1 className="mt-6 text-5xl font-bold text-center text-yellow-500 font-merriweather banner-font">
+        <h1 className="mt-6 text-5xl font-bold text-center text-yellow-500 animate__animated animate__bounce font-merriweather banner-font">
           Luxury Estates
         </h1>
         <div className="grid grid-cols-1 gap-4 my-6 md:grid-cols-2 lg:grid-cols-3">
