@@ -5,6 +5,7 @@ import {useContext, useEffect} from "react";
 import {AuthContext} from "../AuthProvider";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import {Helmet} from "react-helmet-async";
 
 const MySwal = withReactContent(Swal);
 
@@ -25,6 +26,9 @@ export default function SellWithUs() {
   };
   return (
     <>
+      <Helmet>
+        <title>LE - SELL WITH US</title>
+      </Helmet>
       <div className="hero min-h-[86vh] bg-base-200">
         <div className="w-full hero-content">
           <div className="w-full max-w-md border-2 border-yellow-500 rounded-none shadow-2xl card bg-base-100">

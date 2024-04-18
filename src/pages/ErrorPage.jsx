@@ -1,11 +1,15 @@
+import {Helmet} from "react-helmet-async";
 import {Link} from "react-router-dom";
 
 export default function ErrorPage() {
   return (
     <>
+      <Helmet>
+        <title>LE - ERROR</title>
+      </Helmet>
       <section className="relative z-10 bg-[#333333] py-[120px] h-screen flex justify-center items-center">
         <div className="container mx-auto">
-          <div className="-mx-4 flex">
+          <div className="flex -mx-4">
             <div className="w-full px-4">
               <div className="mx-auto max-w-[400px] text-center px-4">
                 <h2 className="mb-2 text-[50px] font-bold leading-none text-yellow-500 sm:text-[80px] md:text-[100px]">
@@ -30,9 +34,9 @@ export default function ErrorPage() {
           </div>
         </div>
 
-        <div className="absolute left-0 top-0 -z-10 flex h-full w-full items-center justify-between space-x-5 md:space-x-8 lg:space-x-14">
+        <div className="absolute top-0 left-0 flex items-center justify-between w-full h-full space-x-5 -z-10 md:space-x-8 lg:space-x-14">
           <div className="h-full w-1/3 bg-gradient-to-r to-[#333333] from-[#000000]"></div>
-          <div className="flex h-full w-1/3">
+          <div className="flex w-1/3 h-full">
             <div className="h-full w-1/2 bg-gradient-to-b from-[#333333] via-[#333333] to-[#000000]"></div>
             <div className="h-full w-1/2 bg-gradient-to-t from-[#333333] via-[#333333] to-[#000000]"></div>
           </div>

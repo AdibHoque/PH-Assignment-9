@@ -1,3 +1,4 @@
+import {Helmet} from "react-helmet-async";
 import {useParams, useLoaderData} from "react-router-dom";
 
 export default function Estates() {
@@ -17,6 +18,9 @@ export default function Estates() {
   } = data;
   return (
     <>
+      <Helmet>
+        <title>LE - ESTATES</title>
+      </Helmet>
       <div className="min-h-[86vh] hero bg-base-200 relative">
         <div className="flex-col hero-content lg:flex-row">
           <figure>

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {useContext, useEffect} from "react";
 import {AuthContext} from "../AuthProvider";
 import {useNavigate} from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 
 export default function UpdateProfile() {
   const {user, createUser, errorMessage, profileUpdate} =
@@ -19,6 +20,9 @@ export default function UpdateProfile() {
   };
   return (
     <>
+      <Helmet>
+        <title>LE - UPDATE PROFILE</title>
+      </Helmet>
       <div className="hero min-h-[86vh] bg-base-200">
         <div className="w-full hero-content">
           <div className="w-full max-w-md border-2 border-yellow-500 rounded-none shadow-2xl card bg-base-100">
