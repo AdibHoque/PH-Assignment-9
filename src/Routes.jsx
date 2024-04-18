@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Estates from "./pages/Estates";
 import RoutesPrivate from "./RoutesPrivate";
 import UpdateProfile from "./pages/UpdateProfile";
+import SellWithUs from "./pages/SellWithUs";
 
 const routes = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ const routes = createBrowserRouter([
         element: (
           <RoutesPrivate>
             <UpdateProfile></UpdateProfile>
+          </RoutesPrivate>
+        ),
+      },
+      {
+        path: "/sell",
+        element: (
+          <RoutesPrivate>
+            <SellWithUs></SellWithUs>
           </RoutesPrivate>
         ),
       },

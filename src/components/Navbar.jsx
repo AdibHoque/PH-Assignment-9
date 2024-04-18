@@ -1,7 +1,15 @@
 import {Link, NavLink, useMatch} from "react-router-dom";
 import {useContext, useState} from "react";
 import {AuthContext} from "../AuthProvider";
-import {FaUserCircle} from "react-icons/fa";
+import {
+  FaUserCircle,
+  FaHome,
+  FaDollarSign,
+  FaUserEdit,
+  FaSignInAlt,
+  FaSignOutAlt,
+  FaUserPlus,
+} from "react-icons/fa";
 
 export default function NavBar() {
   const {user, logOut, loading} = useContext(AuthContext);
@@ -15,17 +23,17 @@ export default function NavBar() {
     <>
       <li>
         <NavLink to="/" className={navClass}>
-          HOME
+          <FaHome /> HOME
         </NavLink>
       </li>
       <li>
         <NavLink to="/sell" className={navClass}>
-          SELL WITH US
+          <FaDollarSign /> SELL WITH US
         </NavLink>
       </li>
       <li>
         <NavLink to="/updateprofile" className={navClass}>
-          UPDATE PROFILE
+          <FaUserEdit /> UPDATE PROFILE
         </NavLink>
       </li>
     </>
@@ -108,7 +116,7 @@ export default function NavBar() {
               onClick={logOut}
               className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
             >
-              LOGOUT
+              <FaSignOutAlt /> LOGOUT
             </button>
           </div>
         ) : match ? (
@@ -116,14 +124,14 @@ export default function NavBar() {
             to="/register"
             className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
           >
-            REGISTER
+            <FaUserPlus /> REGISTER
           </Link>
         ) : (
           <Link
             to="/login"
             className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-none hover:border-yellow-500 hover:text-yellow-500 hover:bg-[#202020]"
           >
-            LOGIN
+            <FaSignInAlt /> LOGIN
           </Link>
         )}
       </div>

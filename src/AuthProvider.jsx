@@ -221,6 +221,7 @@ export default function AuthProvider({children}) {
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
+        errorAlert(errorMessageObj ? errorMessageObj.message : "Unkown Error");
         // ...
       });
   };
@@ -259,6 +260,8 @@ export default function AuthProvider({children}) {
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
+        errorAlert(errorMessageObj ? errorMessageObj.message : "Unkown Error");
+
         // ...
       });
   };

@@ -1,13 +1,15 @@
 import {FcGoogle} from "react-icons/fc";
 import {FaGithub} from "react-icons/fa";
 import {Link} from "react-router-dom";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../AuthProvider";
 import {useNavigate} from "react-router-dom";
+import {FaEyeSlash, FaEye} from "react-icons/fa";
 
 export default function Login() {
   const {user, logIn, errorMessage, googleLogIn, githubLogIn} =
     useContext(AuthContext);
+  const [showpass, setShowpass] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,10 +27,13 @@ export default function Login() {
   };
   return (
     <>
-      <div className="hero h-[86vh] bg-base-200">
+      <div className="hero min-h-[86vh] bg-base-200">
         <div className="w-full hero-content">
           <div className="w-full max-w-md border-2 border-yellow-500 rounded-none shadow-2xl card bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
+              <caption className="text-2xl font-bold text-yellow-500">
+                Login
+              </caption>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -45,13 +50,22 @@ export default function Login() {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="password"
-                  name="password"
-                  className="rounded-none input input-bordered"
-                  required
-                />
+                <div className="flex items-center">
+                  <input
+                    type={showpass ? "text" : "password"}
+                    placeholder="password"
+                    name="password"
+                    className="w-full rounded-none input input-bordered"
+                    required
+                  />
+                  <span
+                    onClick={() => setShowpass(!showpass)}
+                    className="absolute text-xl right-12"
+                  >
+                    {showpass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
+                </div>
+
                 <label className="label">
                   <Link
                     to="/register"
