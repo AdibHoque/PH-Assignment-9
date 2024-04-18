@@ -11,6 +11,7 @@ import {
   GithubAuthProvider,
   updateProfile,
 } from "firebase/auth";
+import PropTypes from "prop-types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -105,6 +106,10 @@ const firebaseErrorMessages = [
       "An account already exists with the same email address but different sign-in credentials. Please sign in using a provider associated with this email address.",
   },
 ];
+
+AuthProvider.propTypes = {
+  children: PropTypes.node,
+};
 
 export default function AuthProvider({children}) {
   const [user, setUser] = useState(null);

@@ -1,7 +1,4 @@
-import {FcGoogle} from "react-icons/fc";
-import {FaGithub} from "react-icons/fa";
-import {Link} from "react-router-dom";
-import {useContext, useEffect} from "react";
+import {useContext} from "react";
 import {AuthContext} from "../AuthProvider";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -10,8 +7,7 @@ import {Helmet} from "react-helmet-async";
 const MySwal = withReactContent(Swal);
 
 export default function SellWithUs() {
-  const {user, createUser, errorMessage, profileUpdate} =
-    useContext(AuthContext);
+  const {user} = useContext(AuthContext);
 
   const handleUpdate = (e) => {
     e.preventDefault();

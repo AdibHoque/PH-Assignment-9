@@ -1,5 +1,9 @@
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
+Card.propTypes = {
+  data: PropTypes.array,
+};
 export default function Card({data}) {
   const {id, estate_title, image, segment_name, price, status, location, area} =
     data;

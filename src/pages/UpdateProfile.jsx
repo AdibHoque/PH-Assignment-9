@@ -1,14 +1,9 @@
-import {FcGoogle} from "react-icons/fc";
-import {FaGithub} from "react-icons/fa";
-import {Link} from "react-router-dom";
-import {useContext, useEffect} from "react";
+import {useContext} from "react";
 import {AuthContext} from "../AuthProvider";
-import {useNavigate} from "react-router-dom";
 import {Helmet} from "react-helmet-async";
 
 export default function UpdateProfile() {
-  const {user, createUser, errorMessage, profileUpdate} =
-    useContext(AuthContext);
+  const {user, errorMessage, profileUpdate} = useContext(AuthContext);
 
   const handleUpdate = (e) => {
     e.preventDefault();
