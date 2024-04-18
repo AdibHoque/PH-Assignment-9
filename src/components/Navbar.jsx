@@ -40,13 +40,13 @@ export default function NavBar() {
   );
   return (
     <div className="navbar bg-[#202020] lg:px-24 h-full ">
-      <div className="navbar-start animate__animated animate__fadeInRight">
+      <div className="navbar-start">
         <details className="dropdown">
           <summary
             tabIndex={0}
             role="button"
             onClick={() => setNavToggle(!navToggle)}
-            className="p-2 mr-2 btn btn-square btn-outline lg:hidden"
+            className="z-50 p-2 mr-2 btn btn-square btn-outline lg:hidden"
           >
             {navToggle ? (
               <svg
@@ -85,7 +85,7 @@ export default function NavBar() {
             {links}
           </ul>
         </details>
-        <Link className="mb-0 text-3xl font-bold leading-none text-yellow-500 lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
+        <Link className="mb-0 text-2xl font-bold leading-none text-yellow-500 animate__animated animate__fadeInRight md:text-3xl lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
           LUXELIFE<br></br>
           <span className="mt-0 leading-none tracking-widest">ESTATES</span>
         </Link>
@@ -97,7 +97,7 @@ export default function NavBar() {
         {loading ? (
           <span className="text-yellow-500 loading loading-spinner loading-lg"></span>
         ) : user ? (
-          <div className="flex justify-center gap-2">
+          <div className="flex justify-center md:gap-2">
             <div className="tooltip tooltip-bottom" data-tip={user.email}>
               <button className="text-4xl text-white btn btn-circle btn-ghost">
                 {user.photoURL ? (
